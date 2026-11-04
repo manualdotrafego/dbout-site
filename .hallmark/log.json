@@ -1,0 +1,30 @@
+[
+ {
+  "prompt": "Site institucional da DBOUT Midia, agencia de trafego pago para clinicas odontologicas; dono Luis Parrela; acao: diagnostico gratuito",
+  "shape": "Marquee Hero",
+  "theme": "dose",
+  "axes": "light/grotesk-sans/chromatic-green",
+  "hero": "Ledge",
+  "nav": "banner over a retracting bar",
+  "footer": "letter close",
+  "imagery": "photographs, user 6; product screenshots 1 (capture.mjs)",
+  "photos": [],
+  "entry": "the founder cut out, sitting on the plastic ledge",
+  "fingerprint": "marquee/ledge/banner-bar/letter/photo/rows",
+  "sections": [
+   "Hero (Ledge)",
+   "Rows (four fronts, a figure each)",
+   "Split (the quiz captured, on a tray)",
+   "Grid 2x2 (four real videos) + logo row",
+   "Statement on the ink band",
+   "Split mirrored (the office wall, the history)",
+   "Band close (the action)",
+   "Footer letter close"
+  ],
+  "signature": "the founder sitting on the plastic ledge, the headline beneath his feet",
+  "waived": [],
+  "draw": "d0ab0e",
+  "date": "2026-11-04",
+  "mode": "build"
+ }
+]
