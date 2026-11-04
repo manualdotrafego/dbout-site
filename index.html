@@ -99,7 +99,7 @@
           <source src="assets/jornada.mp4" type="video/mp4">
         </video>
         <div class="filme__controles">
-          <button class="filme__ctl" type="button" data-loop-sound aria-pressed="false" aria-label="Ligar o som da narração">
+          <button class="filme__ctl" type="button" data-loop-sound aria-pressed="false" aria-label="Ligar o som">
             <svg class="off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
             <svg class="on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
           </button>
@@ -245,7 +245,7 @@
     if (som) som.addEventListener('click', () => {
       s.som = !s.som; s.held = false;
       el.querySelectorAll('video').forEach((v) => { v.muted = !s.som; if (s.som) v.currentTime = 0; });
-      som.setAttribute('aria-label', s.som ? 'Desligar o som' : 'Ligar o som da narração'); som.setAttribute('aria-pressed', String(s.som)); sync();
+      som.setAttribute('aria-label', s.som ? 'Desligar o som' : 'Ligar o som'); som.setAttribute('aria-pressed', String(s.som)); sync();
     });
     [['pointerenter', 'hover', true], ['pointerleave', 'hover', false], ['focusin', 'focus', true], ['focusout', 'focus', false]].forEach(([ev, k, v]) => el.addEventListener(ev, () => { s[k] = v; sync(); }));
     new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
