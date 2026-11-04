@@ -36,6 +36,7 @@
     <div class="hero__light" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     <div class="hero__field">
       <div class="container">
+        <h1 id="titulo" class="hero__title">Tráfego pago para clínicas odontológicas.</h1>
         <figure class="hero__luis" data-slot="hero" data-alt="Luis Parrela, fundador da Dbout, foto recortada de corpo inteiro, sentado">
           <img src="assets/luis-900.webp" srcset="assets/luis-900.webp 900w, assets/luis-1400.webp 1400w" sizes="(min-width: 60rem) 300px, 60vw" width="476" height="1047" alt="Luis Parrela, fundador da Dbout, sentado e sorrindo" fetchpriority="high">
         </figure>
@@ -44,7 +45,6 @@
     <div class="hero__ledge plastic">
       <div class="container">
         <div class="hero__copy">
-          <h1 id="titulo">Tráfego pago para clínicas odontológicas.</h1>
           <p class="lead">Pacientes novos na agenda de mais de 500 clínicas no Brasil.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="https://manualdotrafego.github.io/diagnostico-dbout/">Fazer o diagnóstico gratuito</a>
@@ -97,7 +97,10 @@
           <source src="assets/jornada.webm" type="video/webm">
           <source src="assets/jornada.mp4" type="video/mp4">
         </video>
-        <button class="btn btn--small filme__pausa" type="button" data-loop-toggle>Pausar</button>
+        <div class="filme__controles">
+          <button class="btn btn--small" type="button" data-loop-sound aria-pressed="false">Ouvir a narração do Luis</button>
+          <button class="btn btn--small" type="button" data-loop-toggle>Pausar</button>
+        </div>
         <figcaption>Contrato, análise da região, grupo com a equipe, campanhas prontas, anúncios no ar, pacientes chegando.</figcaption>
       </figure>
     </div>
@@ -223,14 +226,20 @@
   document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
   document.querySelectorAll('[data-loop]').forEach((el) => {
     const btn = el.querySelector('[data-loop-toggle]');
-    const s = { seen: false, hover: false, focus: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
+    const som = el.querySelector('[data-loop-sound]');
+    const s = { seen: false, hover: false, focus: false, som: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
     const sync = () => {
-      const run = s.seen && !s.hover && !s.focus && !s.held;
+      const run = s.seen && !s.held && (s.som || (!s.hover && !s.focus));
       el.classList.toggle('is-running', run);
       el.querySelectorAll('video').forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
       btn.textContent = s.held ? 'Reproduzir' : 'Pausar';
     };
     btn.addEventListener('click', () => { s.held = !s.held; sync(); });
+    if (som) som.addEventListener('click', () => {
+      s.som = !s.som; s.held = false;
+      el.querySelectorAll('video').forEach((v) => { v.muted = !s.som; if (s.som) v.currentTime = 0; });
+      som.textContent = s.som ? 'Silenciar' : 'Ouvir a narração do Luis'; som.setAttribute('aria-pressed', String(s.som)); sync();
+    });
     [['pointerenter', 'hover', true], ['pointerleave', 'hover', false], ['focusin', 'focus', true], ['focusout', 'focus', false]].forEach(([ev, k, v]) => el.addEventListener(ev, () => { s[k] = v; sync(); }));
     new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
   });
