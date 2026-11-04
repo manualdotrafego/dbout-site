@@ -26,6 +26,18 @@ Prévia: https://manualdotrafego.github.io/dbout-site/
 Cada seção é um widget HTML com nome próprio na árvore do Elementor, então dá para
 reordenar ou esconder pelo editor. O CSS inteiro está no primeiro widget.
 
+## No WordPress (dboutmidia.com)
+
+Publicado em 2026-11-04. A página inicial é a página **3066** ("Página Principal 2026",
+slug `inicio-2026`, template Elementor Canvas), criada no editor do Elementor a partir do
+modelo importado **3097** (biblioteca, "Dbout Mídia, página inicial (rebranding)"). A antiga
+página inicial (id **9**, "Página Principal") continua publicada; para voltar, em
+Configurações > Leitura escolha a página 9 como inicial. As imagens e o filme são servidos
+pelo GitHub Pages (`manualdotrafego.github.io/dbout-site/assets/`): se o repositório sair
+do ar, a página perde as imagens; mover os assets para a mídia do WordPress é o próximo passo.
+Para atualizar o conteúdo: editar `index.html`, rodar `python3 exportar_elementor.py`,
+importar o JSON na biblioteca do Elementor e inserir na página (ou substituir os widgets HTML).
+
 ## v2 (variação para validar)
 
 `v2.html` é a mesma página com outro hero: fotografia de madrugada em tela cheia, navegação
