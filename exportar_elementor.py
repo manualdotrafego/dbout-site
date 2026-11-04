@@ -20,7 +20,7 @@ css = re.sub(r'@import url\("\./[a-z]+\.css"\);\n?', "", css)
 css = re.sub(r"/\* Hallmark[^\n]*\n(?: \*[^\n]*\n)*", "", css)  # os carimbos do build não precisam ir para o WordPress
 
 def absoluto(s: str) -> str:
-    return re.sub(r'(src|srcset|href)="assets/', lambda m: f'{m.group(1)}="{BASE}/assets/', s)
+    return re.sub(r'(src|srcset|href|poster)="assets/', lambda m: f'{m.group(1)}="{BASE}/assets/', s)
 
 def em_srcset(s: str) -> str:
     # só os candidatos ainda relativos (o absoluto() já trocou o primeiro)
