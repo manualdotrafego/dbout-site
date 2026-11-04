@@ -91,7 +91,7 @@
     <div class="container">
       <div class="head">
         <h2 id="t-jornada">Do contrato ao anúncio no ar.</h2>
-        <p class="lead">Seis passos, os mesmos para toda clínica. O último leva até 24 horas.</p>
+        <p class="lead">Processo próprio da Dbout, provado em 500 clínicas: equipe dedicada desde o contrato, anúncio no ar em até 24 horas.</p>
       </div>
       <figure class="filme plastic" data-loop>
         <video class="filme__video" muted loop playsinline preload="metadata" poster="assets/jornada-poster.jpg" width="1600" height="900" aria-label="Animação dos seis passos: contrato, análise da região, grupo com a equipe, campanhas prontas, anúncios no ar em 24 horas, pacientes chegando">
@@ -99,10 +99,15 @@
           <source src="assets/jornada.mp4" type="video/mp4">
         </video>
         <div class="filme__controles">
-          <button class="btn btn--small" type="button" data-loop-sound aria-pressed="false">Ouvir a narração do Luis</button>
-          <button class="btn btn--small" type="button" data-loop-toggle>Pausar</button>
+          <button class="filme__ctl" type="button" data-loop-sound aria-pressed="false" aria-label="Ligar o som da narração">
+            <svg class="off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+            <svg class="on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          </button>
+          <button class="filme__ctl" type="button" data-loop-toggle aria-label="Pausar">
+            <svg class="pause" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="play" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
         </div>
-        <figcaption>Contrato, análise da região, grupo com a equipe, campanhas prontas, anúncios no ar, pacientes chegando.</figcaption>
       </figure>
     </div>
   </section>
@@ -233,13 +238,14 @@
       const run = s.seen && !s.held && (s.som || (!s.hover && !s.focus));
       el.classList.toggle('is-running', run);
       el.querySelectorAll('video').forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
-      btn.textContent = s.held ? 'Reproduzir' : 'Pausar';
+      el.classList.toggle('is-held', s.held);
+      btn.setAttribute('aria-label', s.held ? 'Reproduzir' : 'Pausar');
     };
     btn.addEventListener('click', () => { s.held = !s.held; sync(); });
     if (som) som.addEventListener('click', () => {
       s.som = !s.som; s.held = false;
       el.querySelectorAll('video').forEach((v) => { v.muted = !s.som; if (s.som) v.currentTime = 0; });
-      som.textContent = s.som ? 'Silenciar' : 'Ouvir a narração do Luis'; som.setAttribute('aria-pressed', String(s.som)); sync();
+      som.setAttribute('aria-label', s.som ? 'Desligar o som' : 'Ligar o som da narração'); som.setAttribute('aria-pressed', String(s.som)); sync();
     });
     [['pointerenter', 'hover', true], ['pointerleave', 'hover', false], ['focusin', 'focus', true], ['focusout', 'focus', false]].forEach(([ev, k, v]) => el.addEventListener(ev, () => { s[k] = v; sync(); }));
     new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);

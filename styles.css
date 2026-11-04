@@ -138,6 +138,12 @@ dl.facts dd { margin: 0; color: var(--color-ink-2); }
 .filme { --t: var(--p-thu); margin: 0; padding: var(--space-lg); }
 .filme__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-input); background: var(--color-paper); box-shadow: var(--shadow-card); }
 .filme__controles { position: absolute; right: var(--space-xl); bottom: calc(var(--space-xl) + var(--space-2xl)); display: flex; gap: var(--space-xs); flex-wrap: wrap; justify-content: flex-end; }
+.filme__ctl { width: 44px; height: 44px; padding: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: var(--color-ink); border: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent); background: linear-gradient(color-mix(in oklab, var(--glint) 55%, transparent), transparent 45%), color-mix(in oklab, var(--color-paper) 88%, transparent); box-shadow: inset 0 1px 0 var(--glint), 0 10px 20px -12px var(--ink-55); backdrop-filter: blur(6px); }
+.filme__ctl:hover { background-color: var(--color-paper); }
+.filme__ctl:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.filme__ctl .on, .filme__ctl .play { display: none; }
+.filme__ctl[aria-pressed="true"] .on, .is-held .filme__ctl .play { display: block; }
+.filme__ctl[aria-pressed="true"] .off, .is-held .filme__ctl .pause { display: none; }
 .filme figcaption { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-ink-2); }
 html:not(.js) [data-loop-toggle] { display: none; }
 @media (prefers-reduced-motion: reduce) { [data-loop-toggle] { display: none; } }

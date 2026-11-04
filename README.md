@@ -40,8 +40,9 @@ material da página. Para alterar nomes, horários ou o número, edite o HTML e 
 `assets/jornada.mp4` e `.webm` saem do Remotion em `~/Downloads/dbout-motion`
 (composição `Jornada`, dados em `public/jornada.json`). A narração é a voz do Luis
 (ElevenLabs, voz Ggjb0Db946nh53XucOE8, roteiro em `public/jornada_fala.txt`, áudio em
-`public/narr_jornada.mp3`); os passos entram no tempo de cada "Passo N" da fala. Na página o
-filme roda mudo em loop e o botão "Ouvir a narração do Luis" liga o som e recomeça do zero.
+`public/narr_jornada.mp3`); os passos entram no tempo de cada "Passo N" da fala. A narração foi apertada
+(pausas cortadas e atempo 1.25, script apertar_narr.py; original em narr_jornada_orig no scratchpad da sessão). Na página o
+filme roda mudo em loop; dois ícones redondos controlam som (liga e recomeça do zero) e pausa.
 Para regravar: editar o roteiro, rodar o script de TTS com timestamps (ele reescreve o
 `jornada.json`), renderizar com `npx remotion render src/index.ts Jornada out/jornada.mp4`
 e copiar mp4, webm e poster para `assets/`.
