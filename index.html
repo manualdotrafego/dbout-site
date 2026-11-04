@@ -94,7 +94,7 @@
         <p class="lead">Processo próprio da Dbout: equipe dedicada desde o contrato, anúncio no ar em 24 horas.</p>
       </div>
       <figure class="filme plastic" data-loop>
-        <video class="filme__video" muted loop playsinline preload="metadata" poster="assets/jornada-poster.jpg" width="1600" height="900" aria-label="Animação dos seis passos, do contrato aos pacientes chegando">
+        <video class="filme__video" muted loop playsinline autoplay preload="auto" poster="assets/jornada-poster.jpg" width="1600" height="900" aria-label="Animação dos seis passos, do contrato aos pacientes chegando">
           <source src="assets/jornada.webm" type="video/webm">
           <source src="assets/jornada.mp4" type="video/mp4">
         </video>
@@ -235,7 +235,7 @@
     const som = el.querySelector('[data-loop-sound]');
     const s = { seen: false, hover: false, focus: false, som: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
     const sync = () => {
-      const run = s.seen && !s.held && (s.som || (!s.hover && !s.focus));
+      const run = s.seen && !s.held;
       el.classList.toggle('is-running', run);
       el.querySelectorAll('video').forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
       el.classList.toggle('is-held', s.held);
