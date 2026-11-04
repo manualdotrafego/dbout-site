@@ -26,6 +26,15 @@ Prévia: https://manualdotrafego.github.io/dbout-site/
 Cada seção é um widget HTML com nome próprio na árvore do Elementor, então dá para
 reordenar ou esconder pelo editor. O CSS inteiro está no primeiro widget.
 
+## Imagem do hero
+
+`assets/hero-agenda.html` é a ilustração do hero (a agenda de uma segunda-feira com sete
+pacientes novos vindos dos anúncios e uma mensagem respondida em quatro minutos), desenhada no
+material da página. Para alterar nomes, horários ou o número, edite o HTML e renderize:
+`node tools_render_hero.mjs "$PWD/assets/hero-agenda.html" "$PWD/assets/hero-agenda.png"`
+(usa o puppeteer-core da skill Hallmark e o Chrome instalado), depois gere os webp de 720 e
+1200 px com PIL. Fotos do Luis foram tentadas e descartadas (recorte e retrato).
+
 ## Filme da jornada
 
 `assets/jornada.mp4` e `.webm` saem do Remotion em `~/Downloads/dbout-motion`

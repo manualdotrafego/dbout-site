@@ -1,0 +1,11 @@
+import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
+const puppeteer = (await import(pathToFileURL(createRequire('/Users/alexrangelalves/.claude/skills/hallmark/node_modules/noop.js').resolve('puppeteer-core')).href)).default;
+const [,, html, out] = process.argv;
+const b = await puppeteer.launch({ headless: true, executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
+const p = await b.newPage();
+await p.setViewport({ width: 600, height: 750, deviceScaleFactor: 2 });
+await p.goto('file://' + html, { waitUntil: 'networkidle0' });
+await p.evaluate(() => document.fonts.ready);
+await p.screenshot({ path: out, type: 'png' });
+await b.close(); console.log('render ok', out);

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Agenda de segunda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: oklch(97.6% 0.011 88); --paper-2: oklch(95.5% 0.014 88);
+    --ink: oklch(21% 0.025 170); --ink-2: oklch(31% 0.02 170); --muted: oklch(49% 0.024 165); --rule: oklch(86% 0.014 120);
+    --green: oklch(50% 0.13 160); --green-deep: oklch(42% 0.11 162); --mint: oklch(88% 0.08 160); --mint-2: oklch(93% 0.05 160);
+    --glint: #fff; --light: oklch(99.4% 0.016 84);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 600px; height: 750px; background: var(--paper); font-family: "Instrument Sans", sans-serif; color: var(--ink); position: relative; overflow: hidden; -webkit-font-smoothing: antialiased; }
+  .luz { position: absolute; inset: 0; pointer-events: none; }
+  .luz span { position: absolute; top: -12%; width: 20%; height: 124%; background: var(--light); opacity: .9; filter: blur(22px); transform: skewX(-14deg); }
+  .luz span:nth-child(1) { left: 4%; } .luz span:nth-child(2) { left: 44%; width: 12%; opacity: .6; } .luz span:nth-child(3) { left: 72%; width: 24%; }
+  .grao { position: absolute; inset: 0; opacity: .55; mix-blend-mode: multiply; background-size: 180px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.33 0 0 0 0 0.27 0 0 0 0.14 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
+
+  .folha { position: absolute; left: 22px; top: 26px; width: 556px; height: 760px; background: #fff; border-radius: 10px; box-shadow: 0 1px 0 var(--rule), 0 30px 50px -30px oklch(21% 0.025 170 / .45), 0 2px 6px oklch(21% 0.025 170 / .08); padding: 26px 26px 0; }
+  .cab { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .cab h1 { font-family: "Schibsted Grotesk", sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -.6px; line-height: 1; margin: 0; }
+  .cab h1 small { display: block; font-family: "Instrument Sans", sans-serif; font-weight: 500; font-size: 13px; letter-spacing: 0; color: var(--muted); margin-bottom: 8px; }
+  .cab .conta { text-align: right; font-size: 13px; color: var(--ink-2); line-height: 1.3; }
+  .cab .conta b { display: block; font-family: "Schibsted Grotesk", sans-serif; font-size: 34px; font-weight: 700; color: var(--green); letter-spacing: -1px; line-height: 1; }
+
+  .horas { display: grid; grid-template-columns: 52px 1fr; }
+  .h { display: contents; }
+  .h > time { font-size: 12.5px; font-weight: 500; color: var(--muted); padding-top: 9px; border-top: 1px solid var(--rule); height: 50px; font-variant-numeric: tabular-nums; }
+  .h > div { border-top: 1px solid var(--rule); height: 50px; padding: 5px 0 5px 6px; }
+  .h:first-child > * { border-top: 0; }
+  .bloco { height: 40px; border-radius: 7px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px 0 12px; font-size: 13px; line-height: 1.15;
+    background: linear-gradient(oklch(100% 0 0 / .45), transparent 40%), var(--mint-2); box-shadow: inset 0 1px 0 var(--glint), inset 0 -10px 16px -14px oklch(21% 0.025 170 / .35); }
+  .bloco b { font-weight: 600; font-size: 13.5px; }
+  .bloco span { color: var(--ink-2); }
+  .bloco .proc { display: grid; gap: 1px; }
+  .bloco .proc span { font-size: 12px; }
+  .novo { font-size: 11px; font-weight: 600; letter-spacing: .2px; color: oklch(99% 0.006 160); background: var(--green); border-radius: 999px; padding: 4px 9px; white-space: nowrap; box-shadow: inset 0 1px 0 oklch(100% 0 0 / .35); }
+  .bloco.antigo { background: var(--paper-2); box-shadow: inset 0 1px 0 var(--glint); }
+  .bloco.antigo .proc span { color: var(--muted); }
+  .livre { height: 40px; border-radius: 7px; border: 1.5px dashed var(--rule); display: flex; align-items: center; padding-left: 12px; font-size: 12px; color: var(--muted); }
+  .almoco { height: 40px; display: flex; align-items: center; padding-left: 12px; font-size: 12px; color: var(--muted); }
+
+  .chip { position: absolute; right: 10px; bottom: 34px; width: 310px; border-radius: 16px; padding: 12px 14px 12px 12px; background: linear-gradient(oklch(100% 0 0 / .4), transparent 30%), oklch(88% 0.08 160 / .78); box-shadow: inset 0 1.5px 0 var(--glint), inset 0 -20px 30px -24px oklch(21% 0.025 170 / .45), 0 24px 36px -20px oklch(21% 0.025 170 / .55); backdrop-filter: blur(6px); display: grid; grid-template-columns: 38px 1fr; gap: 10px; align-items: start; transform: rotate(-1.2deg); }
+  .chip .av { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: oklch(99% 0.006 160); display: grid; place-items: center; font-family: "Schibsted Grotesk", sans-serif; font-weight: 700; font-size: 15px; }
+  .chip .msg { font-size: 13.5px; line-height: 1.3; color: var(--ink); }
+  .chip .msg b { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 3px; }
+  .chip .msg b small { font-weight: 400; color: var(--muted); font-size: 11.5px; }
+  .chip .msg em { font-style: normal; display: inline-block; margin-top: 7px; font-size: 11.5px; color: var(--green-deep); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="luz"><span></span><span></span><span></span></div>
+<div class="folha">
+  <header class="cab">
+    <h1><small>Agenda da clínica</small>Segunda, 10 nov</h1>
+    <div class="conta"><b>7</b>pacientes novos<br>vindos dos anúncios</div>
+  </header>
+  <div class="horas">
+    <div class="h"><time>08:00</time><div><div class="bloco"><div class="proc"><b>Mariana</b><span>Avaliação ortodôntica</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>09:00</time><div><div class="bloco antigo"><div class="proc"><b>Sr. Osvaldo</b><span>Manutenção</span></div></div></div></div>
+    <div class="h"><time>10:00</time><div><div class="bloco"><div class="proc"><b>Thiago</b><span>Avaliação de implante</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>11:00</time><div><div class="bloco"><div class="proc"><b>Carla</b><span>Avaliação ortodôntica</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>12:00</time><div><div class="almoco">Almoço</div></div></div>
+    <div class="h"><time>13:00</time><div><div class="bloco"><div class="proc"><b>Júlia</b><span>Clareamento</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>14:00</time><div><div class="bloco antigo"><div class="proc"><b>Dona Neusa</b><span>Retorno</span></div></div></div></div>
+    <div class="h"><time>15:00</time><div><div class="bloco"><div class="proc"><b>Rafael</b><span>Avaliação ortodôntica</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>16:00</time><div><div class="bloco"><div class="proc"><b>Beatriz</b><span>Avaliação de implante</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>17:00</time><div><div class="bloco"><div class="proc"><b>Lucas</b><span>Avaliação ortodôntica</span></div><span class="novo">Novo · anúncio</span></div></div></div>
+    <div class="h"><time>18:00</time><div><div class="livre">Livre</div></div></div>
+  </div>
+</div>
+<div class="chip">
+  <div class="av">P</div>
+  <div class="msg"><b>Paula <small>agora</small></b>Oi! Vi o anúncio de vocês. Tem horário para avaliação essa semana?<em>Respondida em 4 min · agendada para terça, 9h</em></div>
+</div>
+<div class="grao"></div>
+</body>
+</html>
