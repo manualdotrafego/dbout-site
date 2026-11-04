@@ -26,6 +26,15 @@ Prévia: https://manualdotrafego.github.io/dbout-site/
 Cada seção é um widget HTML com nome próprio na árvore do Elementor, então dá para
 reordenar ou esconder pelo editor. O CSS inteiro está no primeiro widget.
 
+## v2 (variação para validar)
+
+`v2.html` é a mesma página com outro hero: fotografia de madrugada em tela cheia, navegação
+sobreposta e um painel de vidro com "a noite de ontem" (números ilustrativos). Gerado por
+`python3 tools_build_v2.py` a partir do `index.html`, então rode de novo depois de qualquer
+edição na página principal. Estilos em `v2.css`. A foto é "Secrets Beneath the Fog" de
+SAFEOWN, Wikimedia Commons, CC BY-SA 4.0 (crédito no canto do hero); para o site final,
+trocar por foto própria ou licenciada e remover o crédito.
+
 ## Imagem do hero
 
 `assets/hero-agenda.html` é a ilustração do hero (a agenda de uma segunda-feira com sete
