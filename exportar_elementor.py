@@ -37,6 +37,7 @@ cabeca = pega('<a class="skip"', "</div>\n\n<main")[: -len("\n\n<main")]
 secoes = re.findall(r"(<section[\s\S]*?</section>)", html)
 rodape = pega('<footer class="foot">', "</footer>")
 script = pega("<script>\n(() => {", "</script>")
+ld = pega('<script type="application/ld+json">', "</script>")
 
 fontes = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">'
 estilo = f"<style>\n{css}\n/* Elementor: o tema não deve colocar margem nem fundo no conteúdo */\nhtml body, html body.elementor-page {{ background: var(--color-paper) !important; color: var(--color-ink); }}\n.elementor-section-wrap, .e-con, .e-con-inner {{ max-width: none; padding: 0; }}\n.e-con > .elementor-widget-html {{ width: 100%; }}\n.elementor-widget-html .elementor-widget-container {{ display: contents; }}\n/* o kit do Elementor e o tema pintam button e a:hover; os controles e botões da página mandam */\nbody .elementor-widget-html .btn, body .elementor-widget-html .btn:focus, body .elementor-widget-html .btn:active {{ background: var(--color-paper); color: var(--color-ink); border: 0; }}\nbody .elementor-widget-html .btn:hover {{ background: var(--color-paper-2); color: var(--color-ink); border: 0; }}\nbody .elementor-widget-html .btn--primary, body .elementor-widget-html .btn--primary:focus, body .elementor-widget-html .btn--primary:active {{ background: var(--color-accent); color: var(--color-accent-ink); }}\nbody .elementor-widget-html .btn--primary:hover {{ background: var(--color-accent-deep); color: var(--color-accent-ink); }}\nbody .elementor-widget-html .filme__ctl, body .elementor-widget-html .filme__ctl:hover, body .elementor-widget-html .filme__ctl:focus, body .elementor-widget-html .filme__ctl:active {{ background: var(--color-paper); color: var(--color-ink); border: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent); }}\nbody .elementor-widget-html a:hover {{ color: inherit; }}\n</style>"
@@ -44,9 +45,11 @@ estilo = f"<style>\n{css}\n/* Elementor: o tema não deve colocar margem nem fun
 blocos = [("Fontes, CSS e cabeçalho", fontes + estilo + '<script>document.documentElement.classList.add("js");</script>' + cabeca)]
 nomes = ["Hero", "O trabalho em quatro frentes", "A jornada (filme)", "O diagnóstico", "Depoimentos e clientes", "Frase do fundador", "História e escritório", "Comece pelo diagnóstico"]
 assert len(secoes) == len(nomes), f"{len(secoes)} seções no HTML, {len(nomes)} nomes: atualize a lista"
+# no WordPress não existe o <main id="principal">: o hero vira o alvo do link de pular
+secoes[0] = secoes[0].replace("<section ", '<section id="principal" tabindex="-1" ', 1)
 for nome, sec in zip(nomes, secoes):
     blocos.append((nome, sec))
-blocos.append(("Rodapé e script", rodape + script))
+blocos.append(("Rodapé, dados estruturados e script", rodape + ld + script))
 
 def uid() -> str:
     return uuid.uuid4().hex[:7]
