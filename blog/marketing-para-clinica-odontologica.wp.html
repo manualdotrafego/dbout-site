@@ -1,49 +1,78 @@
 <!-- wp:html -->
-<style>.dbout-artigo{max-width:760px;margin:0 auto;font-size:18px;line-height:1.7;color:#f4f4f6}
-.dbout-artigo li,.dbout-artigo td,.dbout-artigo th,.dbout-artigo figcaption,.dbout-artigo strong,.dbout-artigo h3{color:inherit}
-.dbout-artigo .capa{display:block;width:100%;height:auto;border-radius:12px;margin:0 0 1.6em}
-.dbout-artigo h2{font-size:1.6em;line-height:1.2;margin:2.2em 0 .6em}
-.dbout-artigo h3{font-size:1.2em;line-height:1.3;margin:1.6em 0 .5em}
-.dbout-artigo p,.dbout-artigo li{margin-bottom:.8em}
-.dbout-artigo a{color:#7be0b3;text-decoration:underline}
-.dbout-artigo blockquote{border-left:4px solid #7be0b3;margin:1.6em 0;padding:.8em 1.2em;background:rgba(255,255,255,.06)}
-.dbout-artigo .table-wrap{overflow-x:auto;margin:1.6em 0}
-.dbout-artigo table{border-collapse:collapse;width:100%;font-size:.92em}
-.dbout-artigo th,.dbout-artigo td{border:1px solid rgba(255,255,255,.28);padding:.6em .7em;text-align:left;vertical-align:top}
-.dbout-artigo th{background:rgba(123,224,179,.16)}
-.dbout-artigo figure.blog-chart{margin:2em 0}
-.dbout-artigo figcaption{font-size:.85em;text-align:center;margin-top:.4em}</style>
-<div class="dbout-artigo">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&amp;family=Schibsted+Grotesk:wght@600&amp;display=swap">
+<style>/* Hallmark · shape: Long Read · genre: editorial · theme: Dose, identidade do site Dbout (by request) · job: read · draw: dbout-guia
+ * hero: capa do guia · nav: sumário em duas colunas · footer: lista de fontes · posture: restrained · surface: paper */
+html,body{overflow-x:clip}
+:root{--db-paper:oklch(97.6% 0.011 88);--db-paper-2:oklch(96.5% 0.02 160);--db-paper-3:oklch(93% 0.036 160);--db-ink:oklch(21% 0.025 170);--db-muted:oklch(42% 0.024 165);--db-rule:oklch(86.5% 0.022 140);--db-accent:oklch(50% 0.13 160);--db-accent-deep:oklch(38% 0.1 162);--db-display:"Schibsted Grotesk",ui-sans-serif,sans-serif;--db-body:"Instrument Sans",ui-sans-serif,sans-serif}
+.elementor-widget-container:has(> #dbout-artigo){background-color:var(--db-paper);box-shadow:none;border:1px solid var(--db-rule);border-radius:16px;padding:48px 24px}
+#dbout-artigo{max-width:41rem;margin:0 auto;color:var(--db-ink);font-family:var(--db-body);font-size:1.125rem;line-height:1.65}
+#dbout-artigo p,#dbout-artigo li,#dbout-artigo td,#dbout-artigo th,#dbout-artigo figcaption{color:var(--db-ink);font-family:var(--db-body);font-weight:400}
+#dbout-artigo p{margin:0 0 1.25rem;text-wrap:pretty}
+#dbout-artigo h2,#dbout-artigo h3{color:var(--db-ink);font-family:var(--db-display);font-weight:600;letter-spacing:-0.01em;text-wrap:balance}
+#dbout-artigo h2{font-size:clamp(1.5rem,1.25rem + 1.2vw,2rem);line-height:1.15;margin:3.5rem 0 1rem;padding-top:2rem;border-top:1px solid var(--db-rule)}
+#dbout-artigo h3{font-size:clamp(1.125rem,1.05rem + 0.4vw,1.3125rem);line-height:1.3;margin:2rem 0 0.75rem}
+#dbout-artigo strong{color:inherit;font-weight:600}
+#dbout-artigo ul,#dbout-artigo ol{margin:0 0 1.25rem;padding-left:1.5rem}
+#dbout-artigo li{margin:0 0 0.5rem}
+#dbout-artigo a{color:var(--db-accent-deep);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+#dbout-artigo a:hover{color:var(--db-ink)}
+#dbout-artigo a:focus-visible{outline:2px solid var(--db-accent);outline-offset:2px;border-radius:2px}
+#dbout-artigo a:active{color:var(--db-accent)}
+#dbout-artigo .capa{display:block;width:100%;height:auto;margin:0 0 2rem;border:1px solid var(--db-rule);border-radius:12px}
+#dbout-artigo .pontos{margin:2rem 0;padding:1.5rem;background:var(--db-paper-3);border:1px solid var(--db-rule);border-radius:12px}
+#dbout-artigo .pontos p{margin:0 0 0.75rem;font-family:var(--db-display);font-weight:600}
+#dbout-artigo .pontos ul{margin:0}
+#dbout-artigo .pontos li:last-child{margin:0}
+#dbout-artigo .sumario{margin:2rem 0 0;padding:1.5rem 0;border-top:1px solid var(--db-rule);border-bottom:1px solid var(--db-rule)}
+#dbout-artigo .sumario__t{margin:0 0 0.75rem;font-family:var(--db-display);font-weight:600;font-size:1rem;color:var(--db-muted)}
+#dbout-artigo .sumario ul{margin:0;padding:0;list-style:none;columns:2;column-gap:2rem;font-size:1rem;line-height:1.4}
+#dbout-artigo .sumario li{margin:0 0 0.5rem;break-inside:avoid}
+#dbout-artigo .sumario a{color:var(--db-ink);text-decoration-color:var(--db-rule)}
+#dbout-artigo .sumario + h2{margin-top:2.5rem;padding-top:0;border-top:0}
+#dbout-artigo .table-wrap{margin:2rem 0;overflow-x:auto}
+#dbout-artigo table{width:100%;margin:0;border-collapse:collapse;font-size:0.9375rem;line-height:1.5;font-variant-numeric:tabular-nums}
+#dbout-artigo th,#dbout-artigo td{padding:0.75rem;border:0;border-bottom:1px solid var(--db-rule);background-color:transparent;text-align:left;vertical-align:top}
+#dbout-artigo th{font-weight:600;background-color:var(--db-paper-3)}
+#dbout-artigo figure.blog-chart{margin:2.5rem 0;padding:1.5rem 0.5rem 1rem;background:var(--db-paper-2);border:1px solid var(--db-rule);border-radius:12px}
+#dbout-artigo figure.blog-chart svg{display:block;width:100%;max-width:40rem;height:auto;margin:0 auto;color:var(--db-ink);font-family:var(--db-body);--chart-muted:var(--db-muted)}
+#dbout-artigo figure.blog-chart rect,#dbout-artigo figure.blog-chart circle{fill:var(--db-accent)}
+#dbout-artigo figure.blog-chart line{stroke:var(--db-accent)}
+#dbout-artigo figcaption{margin:0.75rem 0 0;font-size:0.875rem;color:var(--db-muted);text-align:center}
+@media (max-width:40rem){.elementor-widget-container:has(> #dbout-artigo){padding:24px 16px;border-radius:12px}#dbout-artigo{font-size:1.0625rem}#dbout-artigo h2{margin-top:3rem}#dbout-artigo .sumario ul{columns:1}#dbout-artigo table{min-width:34rem}}
+</style>
+<article id="dbout-artigo">
 <img class="capa" src="{{HERO_URL}}" width="1200" height="630" alt="Capa do guia de marketing para clínica odontológica, com a agenda de uma clínica cheia de pacientes vindos dos anúncios" fetchpriority="high" decoding="async">
 <p>O Brasil tem 475.160 cirurgiões-dentistas ativos e 102.839 entidades prestadoras de assistência odontológica, a categoria em que as clínicas se registram, segundo consulta feita em 10/11/2026 ao <a href="https://website.cfo.org.br/estatisticas/quantidade-geral-de-entidades-e-profissionais-ativos/">Conselho Federal de Odontologia (CFO)</a>. Do outro lado, só 49,4% dos brasileiros tinham ido ao dentista nos 12 meses anteriores à Pesquisa Nacional de Saúde de 2019, o dado oficial mais recente (<a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101748.pdf">IBGE</a>).</p>
 <p>Marketing para clínica odontológica é o trabalho de ligar essas duas pontas: ser encontrado por quem mora perto, receber o contato, transformar o contato em consulta e a consulta em tratamento. As seções abaixo cobrem cada etapa, com dados brasileiros, as fórmulas para medir o resultado e as regras do CFO sobre o que um anúncio pode dizer.</p>
 <p>O guia trata da captação paga e do atendimento que transforma contato em consulta. Conteúdo orgânico em redes sociais, indicação e reativação de pacientes antigos ficam fora deste texto. A leitura segue o caminho do paciente, do anúncio à consulta. A ordem de execução é outra e está no plano de 90 dias, que começa pela base e pelas regras.</p>
-<blockquote>
+<blockquote class="pontos">
 <p><strong>Principais pontos</strong></p>
 <ul>
 <li>O CFO registrava 475.160 dentistas ativos e 102.839 entidades odontológicas em novembro de 2026. No último atendimento, 60,1% dos adultos pagaram pela consulta (Fagundes et al., 2021, com dados da PNS 2019).</li>
 <li>Google Ads capta quem já procura dentista. Meta Ads alcança quem mora perto e ainda não procurou.</li>
-<li>O Código de Ética Odontológica veda anunciar preço, forma de pagamento e consulta ou diagnóstico gratuito (arts. 20, IX, e 44, I). "Avaliação gratuita" em anúncio é infração ética.</li>
+<li>O Código de Ética Odontológica veda anunciar preço, forma de pagamento e consulta ou diagnóstico gratuito (arts. 20, IX, e 44, I). “Avaliação gratuita” em anúncio é infração ética.</li>
 <li>Lembrete reduz falta em consultas de saúde em geral: em revisão Cochrane de 2013, o comparecimento foi de 67,8% sem lembrete e de 78,6% com mensagem de texto.</li>
 <li>Não há referência pública confiável de custo por lead em odontologia no Brasil. A régua é o histórico da própria clínica.</li>
 </ul>
 </blockquote>
 
-<p><strong>Neste artigo:</strong></p>
+<nav class="sumario" aria-label="Neste artigo">
+<p class="sumario__t">Neste artigo</p>
 <ul>
-<li><a href="#o-mercado-odontologico-no-brasil-em-numeros">O mercado odontológico no Brasil em números</a></li>
-<li><a href="#anuncios-pagos-meta-ads-e-google-ads-para-clinica-odontologica">Anúncios pagos: Meta Ads e Google Ads para clínica odontológica</a></li>
-<li><a href="#do-lead-ao-paciente-resposta-whatsapp-agendamento-e-lembrete">Do lead ao paciente: resposta, WhatsApp, agendamento e lembrete</a></li>
-<li><a href="#a-base-de-captacao-perfil-no-google-avaliacoes-e-pagina-no-celular">A base de captação: Perfil no Google, avaliações e página no celular</a></li>
-<li><a href="#o-que-o-cfo-permite-e-proibe-na-publicidade-odontologica">O que o CFO permite e proíbe na publicidade odontológica</a></li>
-<li><a href="#lgpd-no-formulario-de-captacao">LGPD no formulário de captação</a></li>
-<li><a href="#as-metricas-que-importam">As métricas que importam</a></li>
+<li><a href="#o-mercado-odontologico-no-brasil-em-numeros">O mercado em números</a></li>
+<li><a href="#anuncios-pagos-meta-ads-e-google-ads-para-clinica-odontologica">Anúncios pagos</a></li>
+<li><a href="#do-lead-ao-paciente-resposta-whatsapp-agendamento-e-lembrete">Do lead ao paciente</a></li>
+<li><a href="#a-base-de-captacao-perfil-no-google-avaliacoes-e-pagina-no-celular">Base de captação</a></li>
+<li><a href="#o-que-o-cfo-permite-e-proibe-na-publicidade-odontologica">Regras do CFO</a></li>
+<li><a href="#lgpd-no-formulario-de-captacao">LGPD no formulário</a></li>
+<li><a href="#as-metricas-que-importam">Métricas</a></li>
 <li><a href="#plano-de-90-dias">Plano de 90 dias</a></li>
 <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
 <li><a href="#conclusao">Conclusão</a></li>
-<li><a href="#sobre-o-autor-e-este-guia">Sobre o autor e este guia</a></li>
+<li><a href="#sobre-o-autor-e-este-guia">Autor e método</a></li>
 <li><a href="#fontes">Fontes</a></li>
 </ul>
+</nav>
 
 
 <h2 id="o-mercado-odontologico-no-brasil-em-numeros">O mercado odontológico no Brasil em números</h2>
@@ -54,7 +83,7 @@
 <p>Em 2019, 49,4% das pessoas tinham consultado um dentista nos 12 meses anteriores, contra 44,4% em 2013 (<a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101748.pdf">IBGE, PNS 2019</a>, p. 41-42). O percentual ia de 40,8% no Norte a 55,8% no Sul, com 43,3% no Nordeste, 49,0% no Centro-Oeste e 53,0% no Sudeste. Na área urbana era de 51,2%; na rural, de 38,7%.</p>
 <p>A renda separa mais que a região. Entre quem vivia com até um quarto de salário mínimo por pessoa, 36,0% foram ao dentista no período. Na faixa de um a dois salários, 53,0%. Acima de cinco salários, 75,7%, mais que o dobro da faixa mais baixa (IBGE, PNS 2019). O dado é autodeclarado e de 2019, mas segue sendo o levantamento oficial mais recente.</p>
 <figure class="blog-chart">
-<svg style="display:block;width:100%;max-width:640px;height:auto;margin:0 auto" aria-label="Percentual de pessoas que consultaram dentista nos 12 meses anteriores, por renda domiciliar per capita em salários mínimos: até 1/4, 36,0%; de 1/4 a 1/2, 40,7%; de 1/2 a 1, 44,4%; de 1 a 2, 53,0%; de 2 a 3, 62,5%; de 3 a 5, 67,9%; mais de 5, 75,7%. Fonte: IBGE, Pesquisa Nacional de Saúde 2019, publicada em 2020." viewbox="0 0 560 380" role="img">
+<svg aria-label="Percentual de pessoas que consultaram dentista nos 12 meses anteriores, por renda domiciliar per capita em salários mínimos: até 1/4, 36,0%; de 1/4 a 1/2, 40,7%; de 1/2 a 1, 44,4%; de 1 a 2, 53,0%; de 2 a 3, 62,5%; de 3 a 5, 67,9%; mais de 5, 75,7%. Fonte: IBGE, Pesquisa Nacional de Saúde 2019, publicada em 2020." viewbox="0 0 560 380" role="img">
   
   <text x="280.0" y="29" text-anchor="middle" font-size="18" fill="currentColor">Ida ao dentista em 12 meses, por renda (%)</text>
   <text x="280.0" y="48.0" text-anchor="middle" font-size="12" fill="var(--chart-muted, currentColor)"><tspan x="280.0" dy="0">Renda domiciliar per capita, em salários mínimos. Brasil, 2019</tspan></text>
@@ -79,7 +108,6 @@
 <text x="136.0" y="289.4" text-anchor="end" font-size="13" fill="currentColor"><tspan x="136.0" dy="0">Mais de 5</tspan></text>
 <rect x="145" y="273.4" width="365.0" height="24.6" rx="4" fill="#2b9a6b"></rect>
 <text x="518.0" y="289.4" font-size="13" fill="currentColor">75,7</text>
-  <text x="280.0" y="366" text-anchor="middle" font-size="10" fill="var(--chart-muted, currentColor)">Fonte: IBGE, Pesquisa Nacional de Saúde 2019</text>
 </svg>
 <figcaption>Fonte: <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv101748.pdf">IBGE, Pesquisa Nacional de Saúde 2019</a>.</figcaption>
 </figure>
@@ -94,7 +122,7 @@
 <p>O público está nas duas. Segundo a <a href="https://www.cetic.br/media/docs/publicacoes/2/pt-br/20260511173151/tic_domicilios_2025_resumoexecutivo%20pt.pdf">TIC Domicílios 2025</a>, do Cetic.br, 85% dos brasileiros de 10 anos ou mais usam internet. Entre os usuários, 81% usaram redes sociais nos três meses anteriores à entrevista, 57% buscaram informações sobre produtos e serviços e 52% buscaram informações sobre saúde.</p>
 <p>Em alcance de anúncios, o <a href="https://datareportal.com/reports/digital-2027-brazil">DataReportal</a> registrou em outubro de 2026, no Brasil, 154 milhões de usuários no YouTube, 152 milhões no TikTok (18 anos ou mais), 144 milhões no Instagram e 106 milhões no Facebook. São números informados pelas próprias plataformas e não equivalem a pessoas únicas.</p>
 <figure class="blog-chart">
-<svg style="display:block;width:100%;max-width:640px;height:auto;margin:0 auto" aria-label="Alcance de anúncios no Brasil em outubro de 2026, em milhões, segundo as próprias plataformas: YouTube 154; TikTok (18 anos ou mais) 152; Instagram 144; Facebook 106. Não são pessoas únicas. Fonte: DataReportal, Digital 2027: Brazil, 5 de novembro de 2026." viewbox="0 0 560 380" role="img">
+<svg aria-label="Alcance de anúncios no Brasil em outubro de 2026, em milhões, segundo as próprias plataformas: YouTube 154; TikTok (18 anos ou mais) 152; Instagram 144; Facebook 106. Não são pessoas únicas. Fonte: DataReportal, Digital 2027: Brazil, 5 de novembro de 2026." viewbox="0 0 560 380" role="img">
   
   <text x="280.0" y="29" text-anchor="middle" font-size="18" fill="currentColor">Alcance de anúncios por plataforma (milhões)</text>
   <text x="280.0" y="48.0" text-anchor="middle" font-size="12" fill="var(--chart-muted, currentColor)"><tspan x="280.0" dy="0">Brasil, outubro de 2026. Dados informados pelas plataformas</tspan></text>
@@ -114,25 +142,24 @@
 <line x1="145" y1="270.5" x2="396.2" y2="270.5" stroke="#2b9a6b" stroke-width="3"></line>
 <circle cx="396.2" cy="270.5" r="6" fill="#2b9a6b"></circle>
 <text x="408.2" y="274.5" font-size="13" fill="currentColor">106</text>
-  <text x="280.0" y="366" text-anchor="middle" font-size="10" fill="var(--chart-muted, currentColor)">Fonte: DataReportal, Digital 2027: Brazil</text>
 </svg>
 <figcaption>Fonte: <a href="https://datareportal.com/reports/digital-2027-brazil">DataReportal, Digital 2027: Brazil</a>.</figcaption>
 </figure>
 
 <p>Alcance nacional não é motivo para anunciar em todas as redes. A clínica atende um raio limitado em volta do endereço, e a recomendação é concentrar a verba em um ou dois canais que ela consiga medir. Um exemplo de como essa etapa se organiza, <a href="https://dboutmidia.com/#jornada">do contrato ao anúncio no ar</a>, está na página inicial da agência.</p>
 <h3>Quando usar Google Ads</h3>
-<p>Use o Google Ads para captar quem já decidiu procurar um dentista. A pessoa digita "dentista" seguido do bairro, "implante dentário" seguido da cidade ou "dentista 24 horas", e o anúncio aparece junto aos resultados. É o canal indicado para urgência e para tratamentos que o paciente já sabe nomear. O limite é o volume de buscas da região: aumentar a verba não cria procura.</p>
+<p>Use o Google Ads para captar quem já decidiu procurar um dentista. A pessoa digita “dentista” seguido do bairro, “implante dentário” seguido da cidade ou “dentista 24 horas”, e o anúncio aparece junto aos resultados. É o canal indicado para urgência e para tratamentos que o paciente já sabe nomear. O limite é o volume de buscas da região: aumentar a verba não cria procura.</p>
 <h3>Quando usar Meta Ads</h3>
 <p>Use o Meta Ads para alcançar moradores da região que ainda não procuraram um dentista, inclusive para tratamentos que não nascem de uma urgência, como aparelho ortodôntico e prótese. O anúncio pode abrir uma conversa no WhatsApp, levar a um formulário dentro da plataforma ou a uma página da clínica.</p>
 <p>A política de saúde e bem-estar da <a href="https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness">Meta</a> exige que anúncios de procedimentos cosméticos sejam direcionados a maiores de 18 anos. A aprovação da plataforma, porém, não significa que a peça esteja de acordo com o CFO: são regras independentes.</p>
 <h3>O que anunciar</h3>
 <p>Dentro do que o Código de Ética Odontológica lista como permitido, o anúncio pode informar:</p>
 <ul>
-<li>a especialidade registrada (ou "clínico geral") seguida dos procedimentos e áreas de atuação;</li>
+<li>a especialidade registrada (ou “clínico geral”) seguida dos procedimentos e áreas de atuação;</li>
 <li>nome e número de inscrição no Conselho Regional de Odontologia (CRO) da clínica e do responsável técnico, que são obrigatórios;</li>
 <li>endereço, telefone, horários e convênios aceitos.</li>
 </ul>
-<p>A recomendação é usar conteúdo explicativo: para quem o tratamento é indicado, como é a primeira consulta e quais são as etapas, sem promessa de resultado. Ficam fora preço, forma de pagamento, consulta ou avaliação gratuita e a palavra "popular".</p>
+<p>A recomendação é usar conteúdo explicativo: para quem o tratamento é indicado, como é a primeira consulta e quais são as etapas, sem promessa de resultado. Ficam fora preço, forma de pagamento, consulta ou avaliação gratuita e a palavra “popular”.</p>
 <h3>Segmentação por região</h3>
 <p>Limite a entrega ao território de onde os pacientes realmente vêm. O cadastro da clínica tem essa resposta: liste os bairros dos pacientes atuais e defina a área a partir deles.</p>
 <ul>
@@ -160,7 +187,7 @@
 <h3>Lembrete e falta</h3>
 <p>Lembrete aumenta o comparecimento. Uma revisão Cochrane de 2013, com 7 estudos e 5.841 participantes, encontrou comparecimento de 67,8% sem lembrete, 78,6% com lembrete por SMS e 80,3% com ligação telefônica (<a href="https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments">Cochrane, Gurol-Urganci et al.</a>). A revisão trata de consultas de saúde em geral e de SMS, não de WhatsApp nem de odontologia, mas indica a direção do efeito.</p>
 <figure class="blog-chart">
-<svg style="display:block;width:100%;max-width:640px;height:auto;margin:0 auto" aria-label="Comparecimento a consultas de saúde: 67,8% sem lembrete, 78,6% com lembrete por SMS e 80,3% com ligação telefônica. Fonte: revisão Cochrane de Gurol-Urganci e colegas, 2013." viewbox="0 0 560 380" role="img">
+<svg aria-label="Comparecimento a consultas de saúde: 67,8% sem lembrete, 78,6% com lembrete por SMS e 80,3% com ligação telefônica. Fonte: revisão Cochrane de Gurol-Urganci e colegas, 2013." viewbox="0 0 560 380" role="img">
   
   <text x="280.0" y="29" text-anchor="middle" font-size="18" fill="currentColor">Comparecimento com e sem lembrete (%)</text>
   <text x="280.0" y="48.0" text-anchor="middle" font-size="12" fill="var(--chart-muted, currentColor)"><tspan x="280.0" dy="0">Revisão de 7 estudos, 5.841 participantes, consultas de saúde em geral</tspan></text>
@@ -173,7 +200,6 @@
 <text x="136.0" y="274.2" text-anchor="end" font-size="13" fill="currentColor"><tspan x="136.0" dy="0">Ligação</tspan><tspan x="136.0" dy="12">telefônica</tspan></text>
 <rect x="145" y="230.0" width="365.0" height="68.0" rx="4" fill="#2b9a6b"></rect>
 <text x="518.0" y="274.2" font-size="13" fill="currentColor">80,3</text>
-  <text x="280.0" y="366" text-anchor="middle" font-size="10" fill="var(--chart-muted, currentColor)">Fonte: Cochrane, Gurol-Urganci et al., 2013</text>
 </svg>
 <figcaption>Fonte: <a href="https://www.cochrane.org/evidence/CD007458_mobile-phone-messaging-reminders-attendance-healthcare-appointments">Cochrane, Gurol-Urganci et al., 2013</a>.</figcaption>
 </figure>
@@ -197,7 +223,7 @@
 <li>botão de WhatsApp visível sem rolar a tela;</li>
 <li>endereço, mapa e horários;</li>
 <li>formulário curto, com o consentimento descrito na seção sobre LGPD;</li>
-<li>nenhum preço, parcelamento ou "avaliação gratuita".</li>
+<li>nenhum preço, parcelamento ou “avaliação gratuita”.</li>
 </ul>
 <h2 id="o-que-o-cfo-permite-e-proibe-na-publicidade-odontologica">O que o CFO permite e proíbe na publicidade odontológica</h2>
 <p>A publicidade de dentistas e clínicas segue três textos do Conselho Federal de Odontologia: o <a href="https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf">Código de Ética Odontológica</a> (Resolução CFO-118/2012), a <a href="https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196">Resolução CFO-196/2019</a>, sobre imagens de pacientes, e a <a href="https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2025/271">Resolução CFO-271/2025</a>, que alterou os arts. 20, 32 e 44 do Código. O que segue é um resumo dessas normas, não um parecer jurídico. Na dúvida sobre uma peça, consulte o CRO do seu estado.</p>
@@ -214,11 +240,11 @@
 <tr>
 <td>Meios e dados da clínica</td>
 <td>Anunciar em qualquer meio; endereço, telefone, horários, convênios e logomarca (arts. 42 e 43)</td>
-<td>A expressão "popular" (art. 44, VII); aliciamento por telemarketing ativo à população em geral (art. 44, XIV)</td>
+<td>A expressão “popular” (art. 44, VII); aliciamento por telemarketing ativo à população em geral (art. 44, XIV)</td>
 </tr>
 <tr>
 <td>Especialidades e procedimentos</td>
-<td>Áreas de atuação e procedimentos, precedidos da especialidade registrada ou de "clínico geral"; a clínica só anuncia especialidade se tiver profissional inscrito nela (arts. 42 e 43)</td>
+<td>Áreas de atuação e procedimentos, precedidos da especialidade registrada ou de “clínico geral”; a clínica só anuncia especialidade se tiver profissional inscrito nela (arts. 42 e 43)</td>
 <td>Título ou especialidade que o profissional não possui; técnica sem comprovação científica</td>
 </tr>
 <tr>
@@ -229,22 +255,22 @@
 <tr>
 <td>Imagens de pacientes</td>
 <td>Selfie com paciente, com termo de consentimento livre e esclarecido (TCLE); imagens de diagnóstico e de conclusão do tratamento, divulgadas pelo dentista que executou o procedimento, com TCLE, nome e CRO (Res. 196/2019)</td>
-<td>Imagens ou vídeos do transcurso do procedimento (Res. 196/2019, art. 3º); casos clínicos de terceiros (art. 4º); promessa de resultado, sensacionalismo e autopromoção (art. 2º, §1º); "antes e depois" segue citado como infração no Código (art. 44, I e XII)</td>
+<td>Imagens ou vídeos do transcurso do procedimento (Res. 196/2019, art. 3º); casos clínicos de terceiros (art. 4º); promessa de resultado, sensacionalismo e autopromoção (art. 2º, §1º); “antes e depois” segue citado como infração no Código (art. 44, I e XII)</td>
 </tr>
 </tbody>
 </table></div>
-<h3>"Avaliação gratuita" é infração ética</h3>
-<p>O Código classifica como infração ética "divulgar ou oferecer consultas e diagnósticos gratuitos ou sem compromisso" (art. 20, IX) e veda publicidade com serviços gratuitos (art. 44, I). Chamadas como "avaliação gratuita", "primeira consulta grátis" e "diagnóstico sem compromisso" caem nessa regra.</p>
-<p>Como o inciso fala em "divulgar ou oferecer", a leitura prudente é aplicar a regra também ao post, à página e à conversa com o lead. O anúncio pode convidar para a consulta de avaliação e explicar o que será examinado, sem dizer que é de graça.</p>
+<h3>“Avaliação gratuita” é infração ética</h3>
+<p>O Código classifica como infração ética “divulgar ou oferecer consultas e diagnósticos gratuitos ou sem compromisso” (art. 20, IX) e veda publicidade com serviços gratuitos (art. 44, I). Chamadas como “avaliação gratuita”, “primeira consulta grátis” e “diagnóstico sem compromisso” caem nessa regra.</p>
+<p>Como o inciso fala em “divulgar ou oferecer”, a leitura prudente é aplicar a regra também ao post, à página e à conversa com o lead. O anúncio pode convidar para a consulta de avaliação e explicar o que será examinado, sem dizer que é de graça.</p>
 <h3>Preço e forma de pagamento</h3>
-<p>O art. 44, I, veda publicidade com preços e modalidades de pagamento. Expressões como "a partir de R$", "10x sem juros" e "parcelamos no boleto" não entram no anúncio.</p>
+<p>O art. 44, I, veda publicidade com preços e modalidades de pagamento. Expressões como “a partir de R$”, “10x sem juros” e “parcelamos no boleto” não entram no anúncio.</p>
 <h3>O que mudou em 2025 sobre descontos</h3>
 <p>Em 2025, a Resolução CFO-271 alterou os arts. 20, 32 e 44 do Código em cumprimento a uma decisão do Conselho Administrativo de Defesa Econômica (Cade). Com ela, o cartão de desconto e a oferta de desconto deixaram de constar como infração.</p>
 <p>A mudança é pontual. Na leitura dos textos oficiais feita em 10/11/2026, continuam como infração a publicidade com preços, serviços gratuitos e modalidades de pagamento e a oferta de consulta ou diagnóstico gratuito. A norma não detalha como divulgar um desconto sem informar preço, por isso leve qualquer campanha desse tipo ao CRO antes de publicar.</p>
 <p>O PDF do Código no site do CFO é o de 2012 e não traz as alterações de 2025, então precisa ser lido junto com a Resolução 271. O <a href="https://website.cfo.org.br/em-cumprimento-a-decisao-do-cade-cfo-realiza-alteracoes-pontuais-no-codigo-de-etica/">CFO informou</a> que prepara uma revisão integral do Código, sem prazo. As regras podem mudar.</p>
-<h3>"Antes e depois": o Código e a Resolução 196</h3>
-<p>Neste ponto as normas não dizem a mesma coisa. O Código ainda cita "antes e depois" como infração (art. 44, I e XII). A Resolução CFO-196/2019 autoriza a divulgação de imagens de diagnóstico e de conclusão do tratamento, desde que feita pelo dentista que executou o procedimento, com TCLE do paciente, nome e CRO.</p>
-<p>A mesma resolução proíbe imagens ou vídeos do transcurso do procedimento (art. 3º), casos clínicos de terceiros (art. 4º) e promessa de resultado, sensacionalismo ou autopromoção (art. 2º, §1º). O caminho mais seguro é tratar o material como imagem de diagnóstico e de resultado final, nos termos da Res. 196/2019, nunca mostrar o "durante" e confirmar com o CRO do estado antes de divulgar.</p>
+<h3>“Antes e depois”: o Código e a Resolução 196</h3>
+<p>Neste ponto as normas não dizem a mesma coisa. O Código ainda cita “antes e depois” como infração (art. 44, I e XII). A Resolução CFO-196/2019 autoriza a divulgação de imagens de diagnóstico e de conclusão do tratamento, desde que feita pelo dentista que executou o procedimento, com TCLE do paciente, nome e CRO.</p>
+<p>A mesma resolução proíbe imagens ou vídeos do transcurso do procedimento (art. 3º), casos clínicos de terceiros (art. 4º) e promessa de resultado, sensacionalismo ou autopromoção (art. 2º, §1º). O caminho mais seguro é tratar o material como imagem de diagnóstico e de resultado final, nos termos da Res. 196/2019, nunca mostrar o “durante” e confirmar com o CRO do estado antes de divulgar.</p>
 <h2 id="lgpd-no-formulario-de-captacao">LGPD no formulário de captação</h2>
 <p>O formulário que pergunta a queixa ou o tratamento de interesse coleta dado de saúde, que a <a href="https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html">Lei 13.709/2018</a> classifica como dado pessoal sensível (art. 5º, II). O tratamento desse dado exige consentimento específico e destacado ou outra hipótese do art. 11.</p>
 <p>Como recomendação prática:</p>
@@ -339,7 +365,7 @@
 <ol>
 <li>Complete o Perfil da Empresa no Google e comece a pedir avaliação no Google a cada paciente atendido.</li>
 <li>Ajuste a página de destino para o celular, com botão de WhatsApp, CRO e formulário com consentimento.</li>
-<li>Revise anúncios, posts e página à luz do CFO: retire "avaliação gratuita", preço e parcelamento, e inclua nome e CRO.</li>
+<li>Revise anúncios, posts e página à luz do CFO: retire “avaliação gratuita”, preço e parcelamento, e inclua nome e CRO.</li>
 <li>Defina a rotina da recepção: quem responde, roteiro de conversa, lembrete e registro da origem de cada agendamento.</li>
 </ol>
 <h3>Dias 31 a 60: primeiros anúncios</h3>
@@ -387,11 +413,11 @@
 <li>Ajuda do Google. <a href="https://support.google.com/business/answer/10515606?hl=pt-BR">Completar o Perfil da Empresa no Google</a>.</li>
 <li>Think with Google. <a href="https://www.thinkwithgoogle.com/_qs/documents/57/mobile-page-speed-new-industry-benchmarks.pdf">Referências de velocidade de páginas mobile</a>. Fevereiro de 2017.</li>
 <li>Brasil. <a href="https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html">Lei 13.709/2018, Lei Geral de Proteção de Dados Pessoais, texto atualizado no portal da Câmara dos Deputados</a>.</li>
-<li>Meta. <a href="https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness">Política de anúncios "Health and Wellness"</a>.</li>
+<li>Meta. <a href="https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness">Política de anúncios “Health and Wellness”</a>.</li>
 <li>CFO. <a href="https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf">Código de Ética Odontológica, Resolução CFO-118/2012</a>.</li>
 <li>CFO. <a href="https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196">Resolução CFO-196/2019</a>.</li>
 <li>CFO. <a href="https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2025/271">Resolução CFO-271/2025</a>.</li>
 <li>CFO. <a href="https://website.cfo.org.br/em-cumprimento-a-decisao-do-cade-cfo-realiza-alteracoes-pontuais-no-codigo-de-etica/">Em cumprimento à decisão do Cade, CFO realiza alterações pontuais no Código de Ética</a>.</li>
 </ul>
-</div>
+</article>
 <!-- /wp:html -->
