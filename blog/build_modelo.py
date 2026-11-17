@@ -63,8 +63,12 @@ for nome, txt in (('widget-topo.html', widget_topo), ('widget-pe.html', widget_p
     (AQUI / nome).write_text(txt, encoding='utf-8')
 
 # ---- página de teste: a marcação do Elementor em volta dos widgets dinâmicos ----
-conteudo = (AQUI / 'marketing-para-clinica-odontologica.wp.html').read_text(encoding='utf-8')
-conteudo = re.sub(r'<!-- /?wp:html -->\n?', '', conteudo).replace('{{HERO_URL}}', 'marketing-para-clinica-odontologica.png')
+import sys
+POST = sys.argv[1] if len(sys.argv) > 1 else 'marketing-para-clinica-odontologica'
+TITULO = sys.argv[2] if len(sys.argv) > 2 else 'Marketing para clínica odontológica: como captar pacientes'
+SAIDA = 'modelo-post.html' if len(sys.argv) < 2 else 'teste-' + POST + '.html'
+conteudo = (AQUI / (POST + '.wp.html')).read_text(encoding='utf-8')
+conteudo = re.sub(r'<!-- /?wp:html -->\n?', '', conteudo).replace('{{HERO_URL}}', POST + '.png')
 
 
 def w(tipo, miolo, extra=''):
@@ -105,13 +109,13 @@ pagina = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marketing para clínica odontológica: como captar pacientes</title>
+<title>{TITULO}</title>
 <meta name="description" content="Como captar pacientes para clínica odontológica com anúncios, WhatsApp e Perfil no Google, com dados do Brasil, métricas e as regras do CFO.">
 </head>
 <body class="single single-post elementor-page-1053">
 <div class="elementor elementor-1053 elementor-location-single">
 {con('blog-topo', w('html', widget_topo))}
-{con('blog-corpo', '<header class="elementor-element e-con e-child" id="blog-capa">' + w('theme-post-title', '<h1 class="elementor-heading-title elementor-size-default">Marketing para clínica odontológica: como captar pacientes</h1>', ' elementor-page-title elementor-widget-heading') + w('post-info', '<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info"><li class="elementor-icon-list-item elementor-inline-item"><span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date"><span class="elementor-post-info__item-prefix">Publicado em </span><time>11 de novembro de 2026</time></span></li></ul>') + '</header>' + w('ha-post-content', conteudo), 'main')}
+{con('blog-corpo', '<header class="elementor-element e-con e-child" id="blog-capa">' + w('theme-post-title', '<h1 class="elementor-heading-title elementor-size-default">' + TITULO + '</h1>', ' elementor-page-title elementor-widget-heading') + w('post-info', '<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info"><li class="elementor-icon-list-item elementor-inline-item"><span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date"><span class="elementor-post-info__item-prefix">Publicado em </span><time>11 de novembro de 2026</time></span></li></ul>') + '</header>' + w('ha-post-content', conteudo), 'main')}
 {con('blog-comentarios', w('ha-post-comments', comentarios), 'section')}
 {con('blog-mais', w('heading', '<h2 class="elementor-heading-title elementor-size-default">Veja outros artigos</h2>') + w('posts', '<div class="elementor-posts-container elementor-posts elementor-posts--skin-classic elementor-grid">' + relacionados + '</div>', ' elementor-grid-3'), 'section')}
 {con('blog-pe', w('html', widget_pe), 'footer')}
@@ -119,5 +123,5 @@ pagina = f'''<!doctype html>
 </body>
 </html>
 '''
-(AQUI / 'modelo-post.html').write_text(pagina, encoding='utf-8')
+(AQUI / SAIDA).write_text(pagina, encoding='utf-8')
 print('widget-topo', len(widget_topo), '| widget-pe', len(widget_pe), '| modelo-post', len(pagina))
